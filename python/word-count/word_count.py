@@ -1,14 +1,13 @@
 def word_count(phrase):
-    word_list = phrase.split()
-    used_words = dict()
-    
-    for word in word_list:
-        if word in used_words.keys():
-            used_words[word] += 1
+    phrase = ''.join([i for i in phrase if i.isalpha()])
+    phrase = phrase.lower()
+    words = phrase.split()
+    words_frequency = dict()
+    for word in words:
+        if word in words_frequency.keys():
+            words_frequency[word] += 1
         else:
-            used_words[word] = 1
+            words_frequency[word] = 1
 
-    for word, occurences in used_words.items():
-        print(word, ':   ', occurences)
 
-    return used_words
+    return words_frequency
